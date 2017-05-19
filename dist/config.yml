@@ -1,0 +1,11 @@
+development:
+  password: 948f18ac6ae2c0a49b1043879db39a28
+  theme_id: 175219726
+  store: featheredge.myshopify.com
+  ignore_files:
+
+production:
+  password: 948f18ac6ae2c0a49b1043879db39a28
+  theme_id: 175219726
+  store: featheredge.myshopify.com
+  ignore_files:
