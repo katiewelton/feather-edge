@@ -1,64 +1,84 @@
 @charset "UTF-8";
+@font-face {font-family: 'Quickbrush';src: url('33B6B0_0_0.eot');src: url('33B6B0_0_0.eot?#iefix') format('embedded-opentype'),url('33B6B0_0_0.woff2') format('woff2'),url('33B6B0_0_0.woff') format('woff'),url('3B6B0_0_0.ttf') format('truetype');}
+@font-face {font-family: 'Catamaran-Thin';src: url('Catamaran-Thin.ttf');}
+@font-face {font-family: 'Catamaran-SemiBold';src: url('Catamaran-SemiBold.ttf');}
+@font-face {font-family: 'Rufina-Regular';src: url('Rufina-Regular.ttf');}
 
 /* Layout */
 
-$site-max-width:          		1764px;
-$reading-column-width:			800px;
-$site-edge-margin:				5%;
-$grid-gutter:              		20px;
-$body-border-thickness:			10px;
-$logo-margin:					40px;
+$site-max-width: 1400px;
+$reading-column-width: 1400px;
+$site-edge-margin: 3%;
+$grid-gutter: 20px;
+$logo-margin: 40px;
 
 
 /* Colour */
 
-$background-col:				{{ settings.site_bg_col }};
-$nav-main-col:  				{{ settings.nav_main_col }};
-$nav-dropdown-bg: 				{{ settings.nav_drop_bg_col }};
-$nav-dropdown-link-col:			{{ settings.nav_drop_link_col }};
-$nav-dropdown-link-hover-col:	{{ settings.nav_drop_link_hover_col }};
-$nav-dropdown-heading-col:		{{ settings.nav_drop_heading_col }};
-$body-text-col: 				{{ settings.body_text_col }};
-$heading-text-col: 				{{ settings.header_col }};
-$feature-col:					{{ settings.feature_col }};
-$feature-col-over:				{{ settings.feature_over_col }};
-$logo-col:						{{ settings.logo_col }};
+$white: #fff;
+$light-grey: #dededd;
+$grey: #909090;
+$light-brown: #ceae95;
+$brown: #a0847a;
+$plum: #713e57;
+$light-blue: #9ab8db;
+$blue: #1a3458;
+$light-green: #74a583;
+$green: #4c6e5c;
+$font-grey: #85888a; 
 
-$collection-header-bg-col:		{{ settings.coll_header_bg_col }};
-$collection-header-text-col: 	{{ settings.coll_header_text_col }};
+$background-col: {{ settings.site_bg_col }};
+$nav-main-col: {{ settings.nav_main_col }};
+$nav-dropdown-bg: {{ settings.nav_drop_bg_col }};
+$nav-dropdown-link-col: {{ settings.nav_drop_link_col }};
+$nav-dropdown-link-hover-col:	{{ settings.nav_drop_link_hover_col }};
+$nav-dropdown-heading-col: {{ settings.nav_drop_heading_col }};
+$body-text-col: {{ settings.body_text_col }};
+$heading-text-col: {{ settings.header_col }};
+$feature-col: {{ settings.feature_col }};
+$feature-col-over: {{ settings.feature_over_col }};
+$logo-col: {{ settings.logo_col }};
+
+$collection-header-bg-col: {{ settings.coll_header_bg_col }};
+$collection-header-text-col: {{ settings.coll_header_text_col }};
 $collection-header-heading-col: {{ settings.coll_header_heading_col }};
 
-$divider-col: 					{{ settings.divider_col }};
+$divider-col: {{ settings.divider_col }};
 
-$links-col: 					$feature-col;
-$price-col:						$heading-text-col;
-$sale-price-col:				{{ settings.prod_sale_price_col }};
+$links-col: $feature-col;
+$price-col: $heading-text-col;
+$sale-price-col: {{ settings.prod_sale_price_col }};
 
-$input-text-col: 				#222;
-$input-bg-col: 					#fff;
-$input-border-col: 				mix($input-text-col, $background-col, 30%);
-$label-text-col:				darken($body-text-col, 25%);
+$input-text-col: #222;
+$input-bg-col: #fff;
+$input-border-col: mix($input-text-col, $background-col, 30%);
+$label-text-col: darken($body-text-col, 25%);
 
-$button-bg-col:					$feature-col;
-$button-text-col:				$feature-col-over;
+$button-bg-col: $feature-col;
+$button-text-col: $feature-col-over;
 
-$inactive-box-border-col: 		mix($body-text-col, $background-col, 30%);
-$inactive-box-bg-col: 			mix($body-text-col, $background-col, 10%);
-$highlight-box-border-col: 		mix($feature-col, $background-col, 30%);
-$highlight-box-bg-col: 			mix($feature-col, $background-col, 10%);
-$error-box-border-col: 			$highlight-box-border-col;
-$error-box-bg-col: 				$highlight-box-bg-col;
+$inactive-box-border-col: mix($body-text-col, $background-col, 30%);
+$inactive-box-bg-col: mix($body-text-col, $background-col, 10%);
+$highlight-box-border-col: mix($feature-col, $background-col, 30%);
+$highlight-box-bg-col: mix($feature-col, $background-col, 10%);
+$error-box-border-col: $highlight-box-border-col;
+$error-box-bg-col: $highlight-box-bg-col;
 
-$slideshow-nav-col:				#111;
-$image-hover-opacity:			0.85;
+$slideshow-nav-col: #111;
+$image-hover-opacity: 0.85;
 
 /* Footer */
-$footer-bg-col:					{{ settings.foot_bg_col }};
-$footer-text-col:				{{ settings.foot_text_col }};
-$footer-links-col:				{{ settings.foot_links_col }};
+$footer-bg-col: {{ settings.foot_bg_col }};
+$footer-text-col: {{ settings.foot_text_col }};
+$footer-links-col: {{ settings.foot_links_col }};
 
 
 /* Font */
+
+$body-font: Catamaran-Thin;
+$body-font-bold: Catamaran-Semibold;
+$title-font: Rufina-Regular;
+$special-font: Quickbrush;
 
 {% if settings.body_font contains 'GWF' %}
 {% assign gfont_split = settings.body_font | split: '|' %}
@@ -68,8 +88,8 @@ $footer-links-col:				{{ settings.foot_links_col }};
 {% capture gfont_family %}{{ settings.body_font }}{% endcapture %}
 {% capture gfont_weight %}normal{% endcapture %}
 {% endif %}
-$body-font-family: 			{{ gfont_family }}, sans-serif;
-$body-font-weight: 			{{ gfont_weight }};
+$body-font-family: {{ gfont_family }}, sans-serif;
+$body-font-weight: {{ gfont_weight }};
 
 {% if settings.heading_font contains 'GWF' %}
 {% assign gfont_split = settings.heading_font | split: '|' %}
@@ -79,8 +99,8 @@ $body-font-weight: 			{{ gfont_weight }};
 {% capture gfont_family %}{{ settings.heading_font }}{% endcapture %}
 {% capture gfont_weight %}normal{% endcapture %}
 {% endif %}
-$heading-font-family: 		{{ gfont_family }}, sans-serif;
-$heading-font-weight:		{{ gfont_weight }};
+$heading-font-family: {{ gfont_family }}, sans-serif;
+$heading-font-weight: {{ gfont_weight }};
 
 {% if settings.nav_font contains 'GWF' %}
 {% assign gfont_split = settings.nav_font | split: '|' %}
@@ -90,8 +110,8 @@ $heading-font-weight:		{{ gfont_weight }};
 {% capture gfont_family %}{{ settings.nav_font }}{% endcapture %}
 {% capture gfont_weight %}normal{% endcapture %}
 {% endif %}
-$nav-font-family: 			{{ gfont_family }}, sans-serif;
-$nav-font-weight:			{{ gfont_weight }};
+$nav-font-family: {{ gfont_family }}, sans-serif;
+$nav-font-weight: {{ gfont_weight }};
 
 {% if settings.logo_font contains 'GWF' %}
 {% assign gfont_split = settings.logo_font | split: '|' %}
@@ -101,41 +121,41 @@ $nav-font-weight:			{{ gfont_weight }};
 {% capture gfont_family %}{{ settings.logo_font }}{% endcapture %}
 {% capture gfont_weight %}normal{% endcapture %}
 {% endif %}
-$logo-font-family: 			{{ gfont_family }}, sans-serif;
-$logo-font-weight:			{{ gfont_weight }};
+$logo-font-family: {{ gfont_family }}, sans-serif;
+$logo-font-weight: {{ gfont_weight }};
 
 
-$body-font-size: 			{{ settings.font_size_body | default: '15' }}px;
-$heading-font-size: 		1.8em;
+$body-font-size: {{ settings.font_size_body | default: '15' }}px;
+$heading-font-size: 1.8em;
 $tablet-heading-font-size:	1 + ($heading-font-size - 1)/2;
-$nav-font-size:				{{ settings.font_size_nav | default: '15' }}px;
-$toolbar-font-size:			1em;
-$button-font-size:			0.95em;
-$input-font-size:			$button-font-size;
-$thumb-price-font-size:		1.3em;
-$price-font-size:			1.6em;
-$label-font-size:			90%;
-$logo-font-size:			30px;
+$nav-font-size: {{ settings.font_size_nav | default: '15' }}px;
+$toolbar-font-size: 1em;
+$button-font-size: 0.95em;
+$input-font-size: $button-font-size;
+$thumb-price-font-size: 1.3em;
+$price-font-size: 1.6em;
+$label-font-size: 90%;
+$logo-font-size: 30px;
 
 
-$body-line-height: 			1.4em;
-$heading-line-height: 		1.2em;
-$rte-line-height:			1.6em;
+$body-line-height: 1.4em;
+$heading-line-height: 1.2em;
+$rte-line-height: 1.6em;
 
 
 /* Input */
 
-$input-and-button-height: 	32px; /* This has to be non font-based */
-$input-padding: 			10px 0.6em 9px;
-$button-padding: 			10px 1.4em 9px;
-$large-button-padding:		18px 2.4em 17px;
-$cart-button-padding:		8px 1.3em 7px;
+$input-and-button-height: 32px; /* This has to be non font-based */
+$input-padding: 10px 0.6em 9px;
+$button-padding: 10px 1.4em 9px;
+$large-button-padding: 18px 2.4em 17px;
+$cart-button-padding: 8px 1.3em 7px;
 
 
 /* Sub nav */
 $nav-dropdown-column-width:	190px;
-$sub-nav-font-size:			$body-font-size;
-$sub-nav-line-height:		$body-line-height;
+$sub-nav-font-size: $body-font-size;
+$sub-nav-line-height: $body-line-height;
 
 
 /* Mixins */
@@ -3657,4 +3677,8 @@ html.template-password {
 /*************    ---                   ---                   ---   *************/
 /*************    |     ENTER YOUR CUSTOM CODE BELOW HERE       |   *************/
 /*************    ---                   ---                   ---   *************/
+
+h1, h2, h3, h4, h5 {
+  font-family: $title-font;
+}
 
