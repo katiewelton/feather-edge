@@ -21,12 +21,13 @@
   {% endif %}
 
   <link rel="canonical" href="{{ canonical_url }}" />
-  <link rel="stylesheet" type="text/css" href="MyFontsKit.css">
+  
   {% include 'fb-open-graph-tags' %}
   {% include 'twitter-card' %}
   
   {% include 'google-fonts-import' %}
-
+  
+  {{ 'MyFontsKit.css' | asset_url | stylesheet_tag }}
   {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
   
   {{ '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' | script_tag }}
