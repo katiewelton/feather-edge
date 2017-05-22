@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js">
 <head>
-  <!-- Canopy v2.1.0 -->
+  <!-- Feather Edge -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <meta name="theme-color" content="{{ settings.feature_col }}">
@@ -12,7 +12,6 @@
   {% elsif settings.favicon != blank and settings.favicon contains '.ico' %}
   <link rel="shortcut icon" href="{{ settings.favicon | img_url: 'master' }}" type="image/x-icon" />
   {% endif %}
-  
   <title>
   {{ page_title }}{% if current_tags %} &ndash; {{ 'general.meta.tagged' | t }} "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t }} {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
   </title>
@@ -22,7 +21,7 @@
   {% endif %}
 
   <link rel="canonical" href="{{ canonical_url }}" />
-
+  <link rel="stylesheet" type="text/css" href="MyFontsKit.css">
   {% include 'fb-open-graph-tags' %}
   {% include 'twitter-card' %}
   

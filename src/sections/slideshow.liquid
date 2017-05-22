@@ -28,16 +28,6 @@
                 {{ block.settings.title | escape }}
               </div>
               {% endif %}
-              {% if block.settings.text != blank %}
-              <div class="line-2 trans-out">
-                {{ block.settings.text | escape }}
-              </div>
-              {% endif %}
-              {% if block.settings.button_text != blank %}
-              <div class="line-3 trans-out">
-                <a class="btn" href="{{ block.settings.link_url }}">{{ block.settings.button_text | escape }}</a>
-              </div>
-              {% endif %}
             </div>
           </div>
           {% endif %}
@@ -71,22 +61,10 @@
 			  "default": "Slideshow"
             },
 			{
-              "type": "text",
-              "id": "text",
-              "label": "Subheading",
-			  "default": "Tell your story with images"
-            },
-			{
               "type": "color",
               "id": "text_colour",
               "label": "Text color",
 			  "default": "#ffffff"
-            },
-			{
-              "type": "text",
-              "id": "button_text",
-              "label": "Button text",
-			  "default": "See more"
             },
             {
               "type": "select",
