@@ -31,7 +31,7 @@ $background-col: {{ settings.site_bg_col }};
 $nav-main-col: {{ settings.nav_main_col }};
 $nav-dropdown-bg: {{ settings.nav_drop_bg_col }};
 $nav-dropdown-link-col: {{ settings.nav_drop_link_col }};
-$nav-dropdown-link-hover-col:	{{ settings.nav_drop_link_hover_col }};
+$nav-dropdown-link-hover-col: {{ settings.nav_drop_link_hover_col }};
 $nav-dropdown-heading-col: {{ settings.nav_drop_heading_col }};
 $body-text-col: {{ settings.body_text_col }};
 $heading-text-col: {{ settings.header_col }};
@@ -113,21 +113,10 @@ $heading-font-weight: {{ gfont_weight }};
 $nav-font-family: {{ gfont_family }}, sans-serif;
 $nav-font-weight: {{ gfont_weight }};
 
-{% if settings.logo_font contains 'GWF' %}
-{% assign gfont_split = settings.logo_font | split: '|' %}
-{% capture gfont_family %}{{ gfont_split[1] | replace: '+', ' ' }}{% endcapture %}
-{% capture gfont_weight %}{{ gfont_split[2] }}{% endcapture %}
-{% else %}
-{% capture gfont_family %}{{ settings.logo_font }}{% endcapture %}
-{% capture gfont_weight %}normal{% endcapture %}
-{% endif %}
-$logo-font-family: {{ gfont_family }}, sans-serif;
-$logo-font-weight: {{ gfont_weight }};
-
 
 $body-font-size: {{ settings.font_size_body | default: '15' }}px;
 $heading-font-size: 1.8em;
-$tablet-heading-font-size:	1 + ($heading-font-size - 1)/2;
+$tablet-heading-font-size:  1 + ($heading-font-size - 1)/2;
 $nav-font-size: {{ settings.font_size_nav | default: '15' }}px;
 $toolbar-font-size: 1em;
 $button-font-size: 0.95em;
@@ -153,7 +142,7 @@ $cart-button-padding: 8px 1.3em 7px;
 
 
 /* Sub nav */
-$nav-dropdown-column-width:	190px;
+$nav-dropdown-column-width: 190px;
 $sub-nav-font-size: $body-font-size;
 $sub-nav-line-height: $body-line-height;
 
@@ -1154,6 +1143,8 @@ ul.inline.list-divide {
   font-size: $toolbar-font-size;
   line-height: 36px; // approx height of search form
   padding: 0.5em 0;
+  position: relative;
+  z-index: 1;
 }
 
 .toolbar.docked {
@@ -1318,11 +1309,11 @@ $sub-nav-padding: 40px;
       &.has-img {
         width: $nav-dropdown-column-width*2 + $sub-nav-padding*1.5;
         &.cols-2 { width: $nav-dropdown-column-width*3 + $sub-nav-padding*1.5; }
-    	&.cols-3 { width: $nav-dropdown-column-width*4 + $sub-nav-padding*1.5; }
-    	&.cols-4 { width: $nav-dropdown-column-width*5 + $sub-nav-padding*1.5; }
-    	&.cols-5 { width: $nav-dropdown-column-width*6 + $sub-nav-padding*1.5; }
+      &.cols-3 { width: $nav-dropdown-column-width*4 + $sub-nav-padding*1.5; }
+      &.cols-4 { width: $nav-dropdown-column-width*5 + $sub-nav-padding*1.5; }
+      &.cols-5 { width: $nav-dropdown-column-width*6 + $sub-nav-padding*1.5; }
         
-    	.rep-img {
+      .rep-img {
           top: 20px;
           right: 20px;
           width: $nav-dropdown-column-width;
@@ -1471,8 +1462,7 @@ $sub-nav-padding: 40px;
 }
 
 .logo {
-  font-family: $logo-font-family;
-  font-weight: $logo-font-weight;
+  font-family: $title-font;
   font-size: $logo-font-size;
   line-height: 1em;
   color: $logo-col;
@@ -2220,32 +2210,19 @@ $pagination-padding: 0.4em;
   }
   .line-1 {
     @extend h1;
-    font-size: $heading-font-size * 1.8;
+    font-family: $special-font;
+    font-size: $heading-font-size * 2.8;
     padding: 0;
     margin: 0 0 20px;
     color: inherit;
   }
-  .line-2 {
-    @extend h1;
-    padding: 0;
-    margin: 0 0 20px;
-    color: inherit;
-  }
-  .line-3 {
-  }
-  
-  .btn {
-    padding: $large-button-padding;
-    pointer-events: initial;
-  }
-  
   .inner .trans-out {
     opacity: 0;
     @include vendor-prefix(transform, translate3d(0, 10px, 0));
     @include vendor-prefix(transition, none);
   }
   
-  .line-1, .line-2, .line-3 {
+  .line-1 {
     &, .no-js & {
       opacity: 1;
       @include vendor-prefix(transform, translate3d(0, 0, 0));
@@ -2752,7 +2729,7 @@ $mobile-nav-width: 436px;
   background-color: white;
   
   &.quickbuy-form--overlay {
-  	z-index: 2;
+    z-index: 2;
     position: absolute;
     top: 0;
     left: 0;
@@ -2767,7 +2744,7 @@ $mobile-nav-width: 436px;
       margin-bottom: 54px;
     }
   }
-	  
+    
   .product-gallery .main a {
     cursor: default;
     vertical-align: top;
@@ -3031,11 +3008,7 @@ $cart-alt-region-bg: mix($body-text-col, $background-col, 10%);
 
 #page-wrap-content {
   @include clearfix();
-  {% if settings.site_bg != blank %}
-  background: $background-col url({{ settings.site_bg | img_url: 'master' }}) center top {{ settings.bg_alignment }};
-  {% else %}
   background: $background-col;
-  {% endif %}
 }
 
 #page-overlay {
@@ -3311,8 +3284,7 @@ $mobile-container-padding: 15px;
       display: inline-block;
       width: 100px;
       margin-left: 10px;
-      font-family: $logo-font-family;
-      font-weight: $logo-font-weight;
+      font-family: $title-font;
       font-size: 14px;
       line-height: 1.2em;
       color: $logo-col;
@@ -3445,12 +3417,7 @@ html.template-password {
     font-size: 15px;
     line-height: 1.3em;
     text-align: center;
-
-    {% if settings.site_bg != blank %}
-    background: {{ settings.site_bg_col }} url({{ settings.site_bg | img_url: 'master' }}) center top {{ settings.bg_alignment }};
-    {% else %}
     background: {{ settings.site_bg_col }};
-    {% endif %}
   }
   .password-container {
     display: table;
@@ -3678,7 +3645,4 @@ html.template-password {
 /*************    |     ENTER YOUR CUSTOM CODE BELOW HERE       |   *************/
 /*************    ---                   ---                   ---   *************/
 
-h1, h2, h3, h4, h5 {
-  font-family: $title-font;
-}
 

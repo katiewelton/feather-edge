@@ -1,1 +1,3 @@
-
+deploy.log
+dist/
+node_modules/

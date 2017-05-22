@@ -12,7 +12,7 @@
 
 {% else %}
 
-<div class="page-header layout-{{ section.settings.header_layout }}" data-section-type="header">
+<div class="page-header" data-section-type="header">
   <div id="toolbar" class="toolbar cf">
     <span class="mobile-toolbar">
       <a class="toggle-mob-nav" href="#">{% include 'svg-nav' %}</a>
@@ -110,30 +110,6 @@
         "id": "menu_linklist",
         "label": "Menu",
 		"default": "main-menu"
-      },
-      {
-        "type": "select",
-        "id": "header_layout",
-        "label": "Layout",
-        "options": [
-          {
-            "value": "center",
-            "label": "Logo in the center"
-          },
-          {
-            "value": "left",
-            "label": "Logo on the left"
-          },
-          {
-            "value": "nav",
-            "label": "Logo in the navigation"
-          },
-          {
-            "value": "mobile",
-            "label": "Mobile navigation style on desktop"
-          }
-        ],
-        "default": "center"
       },
       {
         "type": "header",
