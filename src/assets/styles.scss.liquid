@@ -37,7 +37,7 @@ $body-text-col: {{ settings.body_text_col }};
 $heading-text-col: {{ settings.header_col }};
 $feature-col: {{ settings.feature_col }};
 $feature-col-over: {{ settings.feature_over_col }};
-$logo-col: {{ settings.logo_col }};
+$logo-col: $white;;
 
 $collection-header-bg-col: {{ settings.coll_header_bg_col }};
 $collection-header-text-col: {{ settings.coll_header_text_col }};
@@ -1488,6 +1488,7 @@ $sub-nav-padding: 40px;
   
   .logo {
     float: left;
+    min-width: 250px;
     width: 100%;
     margin-top: $logo-margin;
     margin-bottom: $logo-margin;
@@ -1668,6 +1669,7 @@ $sub-nav-padding: 40px;
   position: relative;
   .tile {  
     padding: 10px;
+    position: relative;
   }
   .tile.loaded {
     display: block;
@@ -1682,32 +1684,29 @@ $sub-nav-padding: 40px;
   a {
     display: block;
     @include vendor-prefix(transition, opacity 300ms);
-    &:hover {
-      opacity: $image-hover-opacity;
+    &:hover .overlay {
+      opacity: 1;
     }
   }
   .overlay {
+    padding: 10px;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     text-align: center;
-    &:before {
-      content: '';
-      display: inline-block;
-      height: 100%;
-      vertical-align: middle;
-      margin-left: -5px;
-    }
+    opacity: 0;
+    transition: opacity .3s;
     .inner {
       @extend h4;
       margin: 0;
       padding: 0;
-      display: inline-block;
-      vertical-align: middle;
-      width: auto;
-      padding: 20px 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
     }
   }
 }
@@ -1716,6 +1715,10 @@ $sub-nav-padding: 40px;
   display: flex;
   flex-direction: column;
   height: calc(100vh - 80px);
+  a {
+    height: 100%;
+    width: 100%;
+  }
   .tile-image {
     background-position: center center;
     background-size: cover;
