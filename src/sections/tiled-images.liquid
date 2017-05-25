@@ -1,31 +1,39 @@
 <section class="-section section-id-{{ section.id }}" data-section-type="tiled-images">
-  <div class="container">
-    <div class="tile-group" data-tiles-per-row="{{ section.settings.row_size }}" data-tiles-margin="{{ section.settings.image_margin }}">
+  <div class="container-tiles">
+    <div class="tile-group">
+      {% assign i = 0 %}
       {% for block in section.blocks %}
-      <div class="tile block-id-{{ block.id }}" {{ block.shopify_attributes }}>
-        {% if block.settings.link_url != blank %}<a href="{{ block.settings.link_url | escape }}">{% endif %}
-        
-        {% if block.settings.image == blank %}
-        <div class="placeholder-image landscape {% if block.settings.title != blank %}dark{% endif %}">
-          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% if i == 0 %}
+        <div class="tile-column tile-column--first">
+      {% endif %}
+      {% if i == 0 or i == 1 %}
+        {% include 'tile-image' %}
+      {% endif %}
+      {% if i == 1 %}
         </div>
-        {% else %}
-        
-        <img src="{{ block.settings.image | img_url: '2048x' }}" alt="{{ block.settings.image.alt | escape }}" />
+      {% endif %}
+      {% if i == 2 %}
+        <div class="tile-column tile-column--second">
+      {% endif %} 
+      {% if i == 2 or i == 3 %}
+        {% include 'tile-image' %}
+      {% endif %}
+      {% if i == 3 %}
+        </div>
+      {% endif %} 
+      {% if i == 4 %}
+        <div class="tile-column tile-column--third">
+      {% endif %} 
+      {% if i == 4 or i == 5 %}
+        {% include 'tile-image' %}
+      {% endif %}
+      {% if i == 5 %}
+        </div>
+      {% endif %}  
 
-        {% endif %}
-        
-        
-        {% if block.settings.title != blank %}
-        <div class="overlay">
-          <div class="inner">
-            {{ block.settings.title | escape }}
-          </div>
-        </div>
-        {% endif %}
-        
-        {% if block.settings.link_url != blank %}</a>{% endif %}
-      </div>
+
+
+      {% assign i = i | plus: 1 %}
       {% endfor %}
     </div>
   </div>
@@ -49,58 +57,6 @@
 	"class": "homepage-section",
 	"max_blocks": 20,
     "settings": [
-	  {
-        "type": "select",
-        "id": "row_size",
-        "label": "Images per row",
-        "options": [
-          {
-            "value": "1",
-            "label": "1"
-          },
-          {
-            "value": "2",
-            "label": "2"
-          },
-          {
-            "value": "3",
-            "label": "3"
-          },
-          {
-            "value": "4",
-            "label": "4"
-          },
-          {
-            "value": "5",
-            "label": "5"
-          }
-        ],
-        "default": "3"
-      },
-      {
-        "type": "select",
-        "id": "image_margin",
-        "label": "Spacing between images",
-        "options": [
-          {
-            "value": "0",
-            "label": "None"
-          },
-          {
-            "value": "1",
-            "label": "Small"
-          },
-          {
-            "value": "2",
-            "label": "Medium"
-          },
-          {
-            "value": "3",
-            "label": "Large"
-          }
-        ],
-        "default": "2"
-      }
 	],
 	"blocks": [
 	  {
@@ -160,6 +116,9 @@
 	 	  {
 			"type": "image"
 		  },
+      {
+      "type": "image"
+      },
 	 	  {
 			"type": "image"
 		  }
