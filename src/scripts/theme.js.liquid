@@ -1550,58 +1550,58 @@ $(function($){
   });
   
   
-  /// Image tile section
+ //  /// Image tile section
   
-  $(document).on('render', '.tile-group', function(){
-    //Vars
-    var $section = $(this);
-    var $imgs = $(this).find('img, svg');
+ //  $(document).on('render', '.tile-group', function(){
+ //    //Vars
+ //    var $section = $(this);
+ //    var $imgs = $(this).find('img, svg');
     
-    var rows = [], 
-        sectionHeight = 0, 
-        margin = $(this).data('tiles-margin'),
-        originalPerRow = $(this).data('tiles-per-row');
-    var margin_px = $section.width() * margin/100.0;
-    var row_size = Math.max(1, $(this).width() >= 768 ? originalPerRow : Math.min(2, originalPerRow));
-    if($(this).width() < 400) {
-      row_size = 1;
-    }
+ //    var rows = [], 
+ //        sectionHeight = 0, 
+ //        margin = $(this).data('tiles-margin'),
+ //        originalPerRow = $(this).data('tiles-per-row');
+ //    var margin_px = $section.width() * margin/100.0;
+ //    var row_size = Math.max(1, $(this).width() >= 768 ? originalPerRow : Math.min(2, originalPerRow));
+ //    if($(this).width() < 400) {
+ //      row_size = 1;
+ //    }
     
-    //Split into rows
-    while ($imgs.length > 0) {
-      var $row = $($imgs.splice(0, row_size));
-      rows.push($row);
-    }
+ //    //Split into rows
+ //    while ($imgs.length > 0) {
+ //      var $row = $($imgs.splice(0, row_size));
+ //      rows.push($row);
+ //    }
     
-    //Only need to recalculate the widths and x-offsets if the layout changes
-    for(var r=0; r<rows.length; r++) {
-      var $rowImgs = rows[r];
-      //Calc ratios & % widths
-      var totalFracWidth = 0;
-      for(var i=0; i<$rowImgs.length; i++) {
-        var wh_ratio = $($rowImgs[i]).width() / $($rowImgs[i]).height();
-        $($rowImgs[i]).data('wh_ratio', wh_ratio);
-        totalFracWidth += wh_ratio;
-      }
-      //Add on margin
-      totalFracWidth += totalFracWidth * (($rowImgs.length-1) * margin / 100.0);
-      //Set vals
-      var xOffset = 0;
-      for(var i=0; i<$rowImgs.length; i++) {
-        var thisWidth = (($($rowImgs[i]).data('wh_ratio')/totalFracWidth) * 100);
-        $($rowImgs[i]).closest('.tile').css({
-          top: sectionHeight,
-          left: xOffset + '%',
-          width: thisWidth + '%'
-        });
-        xOffset += thisWidth + margin;
-      }
-      //Calc height
-      sectionHeight += $($rowImgs[0]).height() + margin_px;
-	}
-    $section.height(sectionHeight - margin_px);
-  });
-  $(window).on('load debouncedresize', function(){ $('.tile-group').trigger('render'); });
+ //    //Only need to recalculate the widths and x-offsets if the layout changes
+ //    for(var r=0; r<rows.length; r++) {
+ //      var $rowImgs = rows[r];
+ //      //Calc ratios & % widths
+ //      var totalFracWidth = 0;
+ //      for(var i=0; i<$rowImgs.length; i++) {
+ //        var wh_ratio = $($rowImgs[i]).width() / $($rowImgs[i]).height();
+ //        $($rowImgs[i]).data('wh_ratio', wh_ratio);
+ //        totalFracWidth += wh_ratio;
+ //      }
+ //      //Add on margin
+ //      totalFracWidth += totalFracWidth * (($rowImgs.length-1) * margin / 100.0);
+ //      //Set vals
+ //      var xOffset = 0;
+ //      for(var i=0; i<$rowImgs.length; i++) {
+ //        var thisWidth = (($($rowImgs[i]).data('wh_ratio')/totalFracWidth) * 100);
+ //        $($rowImgs[i]).closest('.tile').css({
+ //          top: sectionHeight,
+ //          left: xOffset + '%',
+ //          width: thisWidth + '%'
+ //        });
+ //        xOffset += thisWidth + margin;
+ //      }
+ //      //Calc height
+ //      sectionHeight += $($rowImgs[0]).height() + margin_px;
+	// }
+ //    $section.height(sectionHeight - margin_px);
+ //  });
+ //  $(window).on('load debouncedresize', function(){ $('.tile-group').trigger('render'); });
 
 
   /// Select contents on focus

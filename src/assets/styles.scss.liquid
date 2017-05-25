@@ -523,6 +523,13 @@ svg {
   width: $reading-column-width;
   max-width: 100%;
 }
+.container-tiles {
+  margin: 0 auto;
+  max-width: $site-max-width;
+  width: 100% - ($site-edge-margin * 2);
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
 /* Medium and large screens */
 .row {
@@ -1657,11 +1664,12 @@ $sub-nav-padding: 40px;
 }
 
 .tile-group {
+  display: flex;
   position: relative;
-  overflow: hidden;
-  .tile { display: none; }
+  .tile {  
+    padding: 10px;
+  }
   .tile.loaded {
-    position: absolute;
     display: block;
   }
   img {
@@ -1700,6 +1708,45 @@ $sub-nav-padding: 40px;
       vertical-align: middle;
       width: auto;
       padding: 20px 25px;
+    }
+  }
+}
+
+.tile-column {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 80px);
+  .tile-image {
+    background-position: center center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+  }
+  &.tile-column--first {
+    width: 40%;
+    .tile:first-child {
+      height: 65%;
+    }
+    .tile:last-child {
+      height: 35%;
+    }
+  }
+  &.tile-column--second {
+    width: 28%;
+    .tile:first-child {
+      height: 38%;
+    }
+    .tile:last-child {
+      height: 62%;
+    }
+  }
+  &.tile-column--third {
+    width: 32%;
+    .tile:first-child {
+      height: 55%;
+    }
+    .tile:last-child {
+      height: 45%;
     }
   }
 }

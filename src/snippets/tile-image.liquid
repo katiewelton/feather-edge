@@ -1,0 +1,20 @@
+<div class="tile block-id-{{ block.id }}" {{ block.shopify_attributes }}>
+  {% if block.settings.link_url != blank %}<a href="{{ block.settings.link_url | escape }}">{% endif %}
+  {% if block.settings.image == blank %}
+  <div class="placeholder-image landscape {% if block.settings.title != blank %}dark{% endif %} tile-image"
+       style="background-image:url('{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}');">
+  </div>
+  {% else %}
+  <div class="tile-image"
+       style="background-image:url('{{ block.settings.image | img_url: '2048x'}}');">
+  </div>
+  {% endif %}
+  {% if block.settings.title != blank %}
+  <div class="overlay">
+    <div class="inner">
+      {{ block.settings.title | escape }}
+    </div>
+  </div>
+  {% endif %}
+  {% if block.settings.link_url != blank %}</a>{% endif %}
+</div>
