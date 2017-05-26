@@ -1125,7 +1125,7 @@ ul.inline.list-divide {
   margin: 0;
   li {
     display: inline-block;
-    margin: 0 0.3em 0.5em;
+    margin: 0 0.5em 0.5em;
     &:last-child {
       margin-right: 0;
     }
@@ -1138,24 +1138,16 @@ ul.inline.list-divide {
   }
   
   svg {
-    width: 1.25em;
-    height: 1.25em;
+    width: 1.65em;
+    height: 1.65em;
+    &, & g { 
+      fill: $brown; 
+    }
   }
   
   .google svg {
-    width: 1.5em;
+    width: 1.6em;
   }
-  
-  .twitter svg { &, & g { fill: #1bb6ec; } }
-  .facebook svg { &, & g { fill: #3c599f; } }
-  .tumblr svg { &, & g { fill: #304d6b; } }
-  .rss svg { &, & g { fill: #fe9900; } }
-  .google svg { &, & g { fill: #e02a27; } }
-  .youtube svg { &, & g { fill: #e02a27; } }
-  .vimeo svg { &, & g { fill: #1bb6ec; } }
-  .pinterest svg { &, & g { fill: #e02a27; } }
-  .instagram svg { &, & g { fill: #4f7ca2; } }
-  .flickr svg { &, & g { fill: #000; } }
 }
 
 .border-bottom { border-bottom: 1px solid $divider-col; }
@@ -1714,7 +1706,8 @@ $sub-nav-padding: 40px;
 .tile-column {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 80px);
+  height: 65vh;
+  max-height: 60vw;
   a {
     height: 100%;
     width: 100%;
@@ -1790,7 +1783,7 @@ $sub-nav-padding: 40px;
 
 #page-footer {
   @extend .border-top;
-  padding: 4em 0;
+  padding: 4em 0 2em;
   .hash-link {
     float: right;
     margin-top: -3em;
@@ -1881,17 +1874,61 @@ $sub-nav-padding: 40px;
       color: lighten($footer-links-col, 10%);
     }
   }
-  .footer-logo {
-    float: left;
-    max-width: 100px;
-    margin-right: 1.75em;
-    img {
-      height: 50px;
-    }
-    .placeholder-image {
-      width: 60px;
+  .footer-section {
+    display: flex;
+  }
+  .footer-title {
+    color: $plum;
+    font-family: $body-font-bold;
+    padding-top: 20px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $grey;
     }
   }
+  .footer-copyright {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+  .copyright-menu li {
+    padding-left: 20px;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0;
+      height: 100%;
+      width: 1px;
+      background-color: $grey;
+    }
+  }
+}
+.links-column {
+  width: 17%;
+}
+.social-column {
+  width: 26%;
+}
+.trust-column {
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 0;
+  padding-left: 40px;
+  width: 24%;
+}
+.trust-logo {
+  height: auto;
+  padding: 0 0 35px 35px;
+  width: 50%;
 }
 
 .tags {

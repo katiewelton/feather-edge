@@ -1,4 +1,5 @@
 deploy.log
 dist/
 node_modules/
-settings_data.json
+Config/settings_data.json
+
