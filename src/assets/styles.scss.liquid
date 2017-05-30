@@ -80,38 +80,48 @@ $body-font-bold: Catamaran-Semibold;
 $title-font: Rufina-Regular;
 $special-font: Quickbrush;
 
-{% if settings.body_font contains 'GWF' %}
-{% assign gfont_split = settings.body_font | split: '|' %}
-{% capture gfont_family %}{{ gfont_split[1] | replace: '+', ' ' }}{% endcapture %}
-{% capture gfont_weight %}{{ gfont_split[2] }}{% endcapture %}
-{% else %}
-{% capture gfont_family %}{{ settings.body_font }}{% endcapture %}
-{% capture gfont_weight %}normal{% endcapture %}
-{% endif %}
-$body-font-family: {{ gfont_family }}, sans-serif;
-$body-font-weight: {{ gfont_weight }};
+.special-font {
+  font-family: $special-font;
+}
 
-{% if settings.heading_font contains 'GWF' %}
-{% assign gfont_split = settings.heading_font | split: '|' %}
-{% capture gfont_family %}{{ gfont_split[1] | replace: '+', ' ' }}{% endcapture %}
-{% capture gfont_weight %}{{ gfont_split[2] }}{% endcapture %}
-{% else %}
-{% capture gfont_family %}{{ settings.heading_font }}{% endcapture %}
-{% capture gfont_weight %}normal{% endcapture %}
-{% endif %}
-$heading-font-family: {{ gfont_family }}, sans-serif;
-$heading-font-weight: {{ gfont_weight }};
+// {% if settings.body_font contains 'GWF' %}
+// {% assign gfont_split = settings.body_font | split: '|' %}
+// {% capture gfont_family %}{{ gfont_split[1] | replace: '+', ' ' }}{% endcapture %}
+// {% capture gfont_weight %}{{ gfont_split[2] }}{% endcapture %}
+// {% else %}
+// {% capture gfont_family %}{{ settings.body_font }}{% endcapture %}
+// {% capture gfont_weight %}normal{% endcapture %}
+// {% endif %}
+// $body-font-family: {{ gfont_family }}, sans-serif;
+// $body-font-weight: {{ gfont_weight }};
+$body-font-family: $body-font, sans-serif;
+$body-font-weight: 300;
 
-{% if settings.nav_font contains 'GWF' %}
-{% assign gfont_split = settings.nav_font | split: '|' %}
-{% capture gfont_family %}{{ gfont_split[1] | replace: '+', ' ' }}{% endcapture %}
-{% capture gfont_weight %}{{ gfont_split[2] }}{% endcapture %}
-{% else %}
-{% capture gfont_family %}{{ settings.nav_font }}{% endcapture %}
-{% capture gfont_weight %}normal{% endcapture %}
-{% endif %}
-$nav-font-family: {{ gfont_family }}, sans-serif;
-$nav-font-weight: {{ gfont_weight }};
+// {% if settings.heading_font contains 'GWF' %}
+// {% assign gfont_split = settings.heading_font | split: '|' %}
+// {% capture gfont_family %}{{ gfont_split[1] | replace: '+', ' ' }}{% endcapture %}
+// {% capture gfont_weight %}{{ gfont_split[2] }}{% endcapture %}
+// {% else %}
+// {% capture gfont_family %}{{ settings.heading_font }}{% endcapture %}
+// {% capture gfont_weight %}normal{% endcapture %}
+// {% endif %}
+// $heading-font-family: {{ gfont_family }}, sans-serif;
+// $heading-font-weight: {{ gfont_weight }};
+$heading-font-family: $title-font, serif;
+$heading-font-weight: 400;
+
+// {% if settings.nav_font contains 'GWF' %}
+// {% assign gfont_split = settings.nav_font | split: '|' %}
+// {% capture gfont_family %}{{ gfont_split[1] | replace: '+', ' ' }}{% endcapture %}
+// {% capture gfont_weight %}{{ gfont_split[2] }}{% endcapture %}
+// {% else %}
+// {% capture gfont_family %}{{ settings.nav_font }}{% endcapture %}
+// {% capture gfont_weight %}normal{% endcapture %}
+// {% endif %}
+// $nav-font-family: {{ gfont_family }}, sans-serif;
+// $nav-font-weight: {{ gfont_weight }};
+$nav-font-family: $body-font-bold, sans-serif;
+$nav-font-weight: 400;
 
 
 $body-font-size: {{ settings.font_size_body | default: '15' }}px;
@@ -930,7 +940,7 @@ input[type=submit],
   display: inline-block;
   background: $button-bg-col;
   color: $button-text-col;
-  border: 2px solid $button-bg-col;
+  border: 1px solid $button-bg-col;
   height: auto;
   width: auto;
   padding: $button-padding;
@@ -1070,10 +1080,7 @@ ul.inline.list-divide {
     @extend .btn;
   }
 }
-
-
-.section-heading {
-  margin-bottom: 1em;
+.reading-column .section-heading {
   padding-bottom: 90px;
   position: relative;
 
@@ -1088,6 +1095,10 @@ ul.inline.list-divide {
     transform: translateX(-50%);
     width: 34px;
   }
+}
+
+.section-heading {
+  margin-bottom: 1em;
 }
 
 .more-link {
@@ -1156,7 +1167,7 @@ ul.inline.list-divide {
 .border-right { border-right: 1px solid $divider-col; }
 
 .toolbar {
-  align-items: center;
+  align-items: flex-end;
   display: flex;
   justify-content: space-between;
   padding: 2.6em 3em;
@@ -1263,6 +1274,7 @@ ul.inline.list-divide {
   white-space: nowrap;
   
   .current-cart {
+    border: 1px solid #fff;
     display: inline-block;
     small {
       font-size: 1em;
@@ -1284,7 +1296,7 @@ $sub-nav-padding: 40px;
 .navigation {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
 }
 .main-nav {
   position: relative;
@@ -1307,9 +1319,8 @@ $sub-nav-padding: 40px;
       svg {
         fill: $nav-main-col;
         position: absolute;
-        right: -2px;
-        top: 1em;
-        margin-top: -6px;
+        right: 12px;
+        bottom: -0.5em;
       }
     }
     &:hover > .nav-item-link {
@@ -1474,28 +1485,12 @@ $sub-nav-padding: 40px;
   }
 }
 
-.logo-nav {
-  position: relative;
-  z-index: 100;
-  
-  .logo {
-    float: left;
-    min-width: 250px;
-    width: 100%;
-    margin-top: $logo-margin;
-    margin-bottom: $logo-margin;
-    pointer-events: none;
-    a {
-      pointer-events: auto;
-    }
-  }
-}
-
 .logo {
   font-family: $title-font;
   font-size: $logo-font-size;
   line-height: 1em;
   color: $logo-col;
+  min-width: 245px;
 }
 
 .section {
@@ -1746,6 +1741,44 @@ $sub-nav-padding: 40px;
     }
   }
 }
+
+.text-beside-image {
+  display: flex;
+  flex-wrap: wrap;
+}
+.text-beside-image__column {
+  width: 50%;
+}
+.text-beside-image__text {
+  position: relative;
+  text-align: center;
+
+  .section-heading {
+    font-size: 3.5em;
+    position: relative;
+    padding-bottom: 0.6em;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 90px;
+      height: 1px;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+.text-beside-image__image img {
+  width: 100%;
+}
+.text-beside-image__inner {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
 
 #content {
   margin-bottom: 3em;
