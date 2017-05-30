@@ -6,8 +6,8 @@
     "prod_sale_price_col": "#ceae95",
     "feature_col": "#ceae95",
     "feature_over_col": "#ffffff",
-    "btn_shape": "lozenge",
-    "divider_col": "#dededd",
+    "btn_shape": "rect",
+    "divider_col": "#909090",
     "nav_main_col": "#ffffff",
     "nav_drop_bg_col": "#713e57",
     "nav_drop_link_col": "#ffffff",
@@ -16,7 +16,7 @@
     "coll_header_bg_col": "#ffffff",
     "coll_header_heading_col": "#ceae95",
     "coll_header_text_col": "#333333",
-    "homepage_divider_col": "#ffffff",
+    "homepage_divider_col": "#909090",
     "foot_bg_col": "#ffffff",
     "foot_text_col": "#909090",
     "foot_links_col": "#909090",
@@ -87,7 +87,7 @@
           "use_mobile_logo": false,
           "compact_logo": "",
           "cart_icon": "",
-          "nav_col_limit": "8",
+          "nav_col_limit": "14",
           "nav_show_images": false,
           "nav_uber_name": "",
           "nav_uber_list_1_title": "",
@@ -270,11 +270,36 @@
         ],
         "settings": {
         }
+      },
+      "1495806436024": {
+        "type": "text-beside-image",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/candles.png",
+          "layout": "left",
+          "title": "Summer sunsets",
+          "text": "<p>Elegantly light up your garden table as you watch the sunset this summer with our copper lantern<\/p>",
+          "button_text": "",
+          "button_url": "",
+          "title_text_color": "#74a583",
+          "text_color": "#909090",
+          "text_background": "#ededed",
+          "button_text_color": "#464654"
+        }
+      },
+      "1496143117232": {
+        "type": "instagram",
+        "settings": {
+          "title": "Instagram feed",
+          "show_account": true,
+          "access_token": "4187819051.a71d3f8.2f40ce48907d4a69be00d90d95e6c3f7"
+        }
       }
     },
     "content_for_index": [
       "1480594642153",
-      "1478864807619"
+      "1478864807619",
+      "1495806436024",
+      "1496143117232"
     ]
   },
   "presets": {
