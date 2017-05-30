@@ -3,12 +3,14 @@
     "body_text_col": "#909090",
     "header_col": "#1c1d1d",
     "logo_col": "#ffffff",
+    "logo_col2": "#713e57",
     "prod_sale_price_col": "#ceae95",
     "feature_col": "#ceae95",
     "feature_over_col": "#ffffff",
     "btn_shape": "rect",
-    "divider_col": "#909090",
+    "divider_col": "#d2d0d0",
     "nav_main_col": "#ffffff",
+    "nav_main_col2": "#909090",
     "nav_drop_bg_col": "#713e57",
     "nav_drop_link_col": "#ffffff",
     "nav_drop_link_hover_col": "#ceae95",
@@ -16,7 +18,7 @@
     "coll_header_bg_col": "#ffffff",
     "coll_header_heading_col": "#ceae95",
     "coll_header_text_col": "#333333",
-    "homepage_divider_col": "#909090",
+    "homepage_divider_col": "#d0d0d0",
     "foot_bg_col": "#ffffff",
     "foot_text_col": "#909090",
     "foot_links_col": "#909090",
@@ -293,13 +295,22 @@
           "show_account": true,
           "access_token": "4187819051.a71d3f8.2f40ce48907d4a69be00d90d95e6c3f7"
         }
+      },
+      "1496154716945": {
+        "type": "featured-collection",
+        "settings": {
+          "collection": "new-in",
+          "products_per_row": "3",
+          "row_count": "2"
+        }
       }
     },
     "content_for_index": [
       "1480594642153",
       "1478864807619",
       "1495806436024",
-      "1496143117232"
+      "1496143117232",
+      "1496154716945"
     ]
   },
   "presets": {

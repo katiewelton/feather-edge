@@ -25,7 +25,14 @@
          {  
             "type":"color",
             "id":"logo_col",
-            "label":"Store name text",
+            "label":"Store name text for homepage",
+            "info":"when not using a logo image",
+            "default":"#333333"
+         },
+         {  
+            "type":"color",
+            "id":"logo_col2",
+            "label":"Store name text for other pages",
             "info":"when not using a logo image",
             "default":"#333333"
          },
@@ -80,7 +87,13 @@
          {  
             "type":"color",
             "id":"nav_main_col",
-            "label":"Links",
+            "label":"Links - Homepage",
+            "default":"#666666"
+         },
+         {  
+            "type":"color",
+            "id":"nav_main_col2",
+            "label":"Links - Other pages",
             "default":"#666666"
          },
          {  
