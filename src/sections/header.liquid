@@ -13,21 +13,10 @@
 {% else %}
 
 <div class="page-header" data-section-type="header">
-  <span class="mobile-toolbar">
-    <a class="toggle-mob-nav" href="#">{% include 'svg-nav' %}</a>
-    <a class="compact-logo" href="{{ shop.url }}">
-      {% if section.settings.logo != blank %}
-      {% if section.settings.use_mobile_logo %}
-      {{ section.settings.compact_logo | img_url: '200x' | img_tag: section.settings.compact_logo.alt }}
-      {% else %}
-      {{ section.settings.logo | img_url: '200x' | img_tag: section.settings.logo.alt }}
-      {% endif %}
-      {% else %}
-      {{ shop.name }}
-      {% endif %}
-    </a>
-  </span>
   <div id="toolbar" class="toolbar">
+    <span class="mobile-toolbar">
+      <a class="toggle-mob-nav" href="#">{% include 'svg-nav' %}</a>
+    </span>
 
     {% unless section.settings.header_layout == 'mobile' %}
     {% endunless %}
@@ -112,17 +101,6 @@
         "id": "logo_width",
         "label": "Logo width (in pixels)",
         "default": "300"
-      },
-      {
-        "type": "checkbox",
-        "id": "use_mobile_logo",
-        "label": "Use mobile logo",
-        "default": false
-      },
-      {
-        "type": "image_picker",
-        "id": "compact_logo",
-        "label": "Mobile logo"
       },
       {
         "type": "header",
