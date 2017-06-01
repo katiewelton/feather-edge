@@ -532,8 +532,10 @@ svg {
 .reading-column {
   margin-left: auto;
   margin-right: auto;
-  width: $reading-column-width;
-  max-width: 100%;
+  max-width: $reading-column-width;
+  width: 94%;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .container-tiles {
   margin: 0 auto;
@@ -748,7 +750,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font-family;
   font-weight: $heading-font-weight;
   line-height: $heading-line-height;
-  padding: 0 0 0.2em;
   color: $heading-text-col;
   margin: 0 0 0.5em;
 }
@@ -1104,7 +1105,7 @@ ul.inline.list-divide {
   .btn {
     position: absolute;
     right: 0;
-    top: 0;
+    bottom: 0;
   }
 }
 
@@ -1160,8 +1161,8 @@ ul.inline.list-divide {
   }
   
   svg {
-    width: 1.65em;
-    height: 1.65em;
+    width: 1.3em;
+    height: 1.3em;
     &, & g { 
       fill: $brown; 
     }
@@ -1524,6 +1525,15 @@ $sub-nav-padding: 40px;
     padding-top: 60px;
     padding-bottom: 60px;
   }
+  .homepage-section .reading-column {
+    .section-heading {
+      padding-bottom: 60px;
+      margin-bottom: 0;
+    }
+    p {
+      margin-bottom: 0;
+    }
+  }
 }
 @media only screen and (max-width: 540px) {
   .section {
@@ -1828,7 +1838,22 @@ $sub-nav-padding: 40px;
     margin-bottom: 0.4em;
   }
   .text-beside-image__inner {
-    padding: 1em 2.2em;
+    padding: 1em 2.2em 0;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .text-beside-image__column {
+    width: 100%;
+  }
+  .text-beside-image__text {
+    order: 1;
+  }
+  .text-beside-image__image {
+    order: 2;
+  }
+  .text-beside-image__inner {
+    padding: 2.5em 2.2em 1.5em;
+    position: relative;
   }
 }
 
@@ -1883,6 +1908,10 @@ $sub-nav-padding: 40px;
   }
   ul {
     margin: 0 0 1em;
+  }
+
+  .copyright-menu {
+    margin-bottom: 0;
   }
   
   .logo-column { width: 14%; }
@@ -1984,18 +2013,22 @@ $sub-nav-padding: 40px;
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    font-size: 13px;
   }
-  .copyright-menu li {
-    padding-left: 20px;
-    position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      left: 10px;
-      top: 0;
-      height: 100%;
-      width: 1px;
-      background-color: $grey;
+  .copyright-menu {
+    margin-bottom: 0;
+    li {
+      padding-left: 20px;
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 10px;
+        top: 2px;
+        height: 15px;
+        width: 1px;
+        background-color: $grey;
+      }
     }
   }
 }
@@ -3339,6 +3372,10 @@ $mobile-container-padding: 15px;
     width: 100%;
     padding-left: $mobile-container-padding;
     padding-right: $mobile-container-padding;
+  }
+  .container-tiles {
+    padding: 0 15px;
+    width: 100%;
   }
   #page-wrap-inner {
     border: none rgb(255, 0, 1); //used in js to detect 767 query

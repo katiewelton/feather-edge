@@ -8,7 +8,7 @@
     
     {% assign collection = collections[section.settings.collection] %}
     <div class="featured-collection-heading">
-      <h1 class="section-heading align-center">{{ collection.title | link_to: collection.url }}</h1>
+      <h2 class="section-heading align-center">{{ collection.title | link_to: collection.url }}</h2>
       <a class="btn section-count" href="{{ collection.url }}">
         <span class="not-tiny">{{ 'collections.general.view_all' | t }} ({{ collection.products_count }})</span>
         <span class="tiny">{{ collection.products_count }}</span>
